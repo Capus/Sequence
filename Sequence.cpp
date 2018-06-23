@@ -75,32 +75,39 @@ string Sequence::longestConsecutive()
 
 string Sequence::longestRepeated()
 {
+	//to be finished
+}
+/*
+string Sequence::longestRepeated()
+{
 	int max=0;
 	int index=0;
 	
 	int next[len+1]={};
 	next[0]=next[1]=0;
-	
-	for(int i=1;i<len;++i)
+	for(int k=1;k<len-max;++k)
 	{
-		int p=next[i];
-
-		while(p>0&&seq[p]!=seq[i])
-			p=next[p];
-
-		if(seq[p]==seq[i])
-			next[i+1]=p+1;
-
-		else
-			next[i+1]=0;
-		//find the max
-		if(next[i+1]>max)
+		for(int i=k;i<len;++i)
 		{
-			max=next[i+1];
-			index=i;
+			int p=next[i];
+	
+			while(p>0&&seq[p]!=seq[i])
+				p=next[p];
+	
+			if(seq[p]==seq[i])
+				next[i+1]=p+1;
+	
+			else
+				next[i+1]=0;
+			//find the max
+			if(next[i+1]>max)
+			{
+				max=next[i+1];
+				index=i;
+			}
 		}
 	}
-	for(int i=0;i<len+1;++i)cout<<next[i]<<' ';	
+	//for(int i=0;i<len+1;++i)cout<<next[i]<<' ';	
 	string result=seq.substr(index-max,max);
 	return result;
 }
