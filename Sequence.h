@@ -15,7 +15,6 @@ public:
 	string longestConsecutive();
 	string longestRepeated();
 	//extra
-	
 private:
 	int A,T,C,G;
 	int len;
